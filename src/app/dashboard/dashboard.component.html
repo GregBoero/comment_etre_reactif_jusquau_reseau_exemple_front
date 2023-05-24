@@ -1,0 +1,36 @@
+<div class='container'>
+  <mat-card>
+    <mat-card-header>
+      List of buyer
+    </mat-card-header>
+    <mat-card-content>
+      <div class='mat-elevation-z8'>
+        <table mat-table [dataSource]='dataSource'>
+          <ng-container matColumnDef='name'>
+            <th mat-header-cell *matHeaderCellDef> Name</th>
+            <td mat-cell *matCellDef='let element'> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef='price'>
+            <th mat-header-cell *matHeaderCellDef> price</th>
+            <td mat-cell *matCellDef='let element'> {{element.price}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef='displayedColumns'></tr>
+          <tr mat-row *matRowDef='let row; columns: displayedColumns;'></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]='[5, 10, 20]'
+                       showFirstLastButtons
+                       aria-label='Select page of coffee'>
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card>
+    <p>Number of unique buyer :  {{uniqBuyer}}</p>
+    <p>Collected money :  {{moneyCollected}}</p>
+    <p>Average coffee price :  {{averageCoffeePrice}}</p>
+  </mat-card>
+</div>
